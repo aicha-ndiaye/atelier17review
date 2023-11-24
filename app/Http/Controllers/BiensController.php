@@ -84,8 +84,16 @@ class BiensController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(biens $biens)
-    {
-        //
+
+        public function delete(Request $req)
+        {
+            return 'supprimer';
+        //     $bien= Biens::FindOrFail($req->id);
+        //     dd($bien);
+        //    if($bien->delete()) {
+        //     return back() ;
+
+        //   }
+        }
     }
-}
+

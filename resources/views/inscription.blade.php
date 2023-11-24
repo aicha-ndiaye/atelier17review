@@ -12,7 +12,8 @@
 </head>
 <body>
     <div class="registration-form">
-        <form>
+        <form  method="post" action="/inscriptionUser">
+            @csrf
             <div class="form-icon">
                 <span><i class="icon icon-user"></i></span>
             </div>
@@ -23,14 +24,13 @@
                 <input type="text" class="form-control item" id="prenom" placeholder="prenom">
             </div>
             <div class="form-group">
-                <input type="password" class="form-control item" id="password" placeholder="mot de passe">
+                <input type="text" class="form-control item" name="email" id="email" placeholder="Email">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" id="email" placeholder="Email">
+                <input type="password" class="form-control item" name="mot_de_passe" id="password" placeholder="mot de passe">
             </div>
-
             <div class="form-group">
-                <button type="button" class="btn btn-block create-account">inscription</button>
+                <button type="submit" class="btn btn-block create-account">inscription</button>
             </div>
             <div class="form-group">
                 <a href="/connexion">

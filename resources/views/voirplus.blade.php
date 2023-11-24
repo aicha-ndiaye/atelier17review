@@ -87,7 +87,9 @@
                                         <a class="d-block h5 mb-2" href="">{{$bien->categorie}}</a>
                                         <p><i class="fa fa-map-marker-alt text-primary me-2"></i> {{$bien->adresse}} </p>
                                         <p>description</p>
+                                        <a href="/modifierBien/{{$bien->id}}">
                                         <button type="button" class="btn btn-success">modifier</button>
+                                        </a>
                                         <a href="/pageAdmin">
                                         <button type="button" class="btn btn-secondary">return back</button>
                                     </a>

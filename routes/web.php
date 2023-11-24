@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\BiensController;
 use App\Http\Controllers\UtilisateurController;
@@ -16,37 +17,18 @@ use App\Http\Controllers\UtilisateurController;
 |
 */
 
-Route::get('/inscription', function () {
-    return view('inscription');
-});
-
-Route::get('/acceuil', function () {
-    return view('acceuil');
-});
-Route::get('/connexion', function () {
-    return view('connexion');
-});
 
 
-Route::get('/home', function () {
-    return view('home');
-});
-Route::get('/listeAdmin', function () {
-    return view('listeAdmin');
-});
-
-Route::get('/pageUser', function () {
-    return view('pageUser');
-});
-Route::get('/modifsuppbien', function () {
-    return view('modifsuppbien');
-});
 Route::get('/ajoutBien',[BiensController::class,'create']);
 Route::post('/ajoutBiens',[BiensController::class,'store']);
 Route::get('/user',[UtilisateurController::class,'index']);
 Route::get('/connecter',[UtilisateurController::class,'index']);
 Route::get('/pageAdmin',[AdminController::class,'index']);
-Route::get('/modifsuppbien/{id}',[AdminController::class,'edit']);
+Route::get('/modifierBien/{id}',[AdminController::class,'edit']);
 Route::get('/voirplus/{id}',[AdminController::class,'voirplus']);
-
+Route::get('/supprimerBien/{id}',[AdminController::class,'delete']);
+Route::post('/modificationBien/{bien}',[AdminController::class,'update']);
+Route::get('/pageUser',[UserController::class,'index']);
+Route::get('/inscription',[UserController::class,'create']);
+Route::post('/inscriptionUser',[UserController::class,'store']);
 

@@ -115,7 +115,7 @@
                             <a href="/voirplus/{{$bien->id}}">
                                 <button type="button" class="btn btn-success">voir plus</button>
                             </a>
-                            <button type="button" class="btn btn-danger">supprimer</button>
+                            <a href="/supprimerBien/{{$bien->id}}" class="btn btn-danger">supprimer</a>
                         </div>
                     </div>
                 </div>

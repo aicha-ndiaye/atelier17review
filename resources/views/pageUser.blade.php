@@ -14,7 +14,8 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@700;800&display=swap"
+        rel="stylesheet">
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
@@ -34,7 +35,8 @@
 <body>
     <div class="container-xxl bg-white p-0">
         <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div id="spinner"
+            class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
             <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
                 <span class="sr-only">Loading...</span>
             </div>
@@ -48,18 +50,21 @@
             <nav class="navbar navbar-expand-lg bg-white navbar-light py-0 px-4">
                 <a href="index.html" class="navbar-brand d-flex align-items-center text-center">
                     <div class="icon p-2 me-2">
-                        <img class="img-fluid" src="img/icon-deal.png" alt="Icon" style="width: 20px; height: 20px;">
+                        <img class="img-fluid" src="img/icon-deal.png" alt="Icon"
+                            style="width: 20px; height: 20px;">
                     </div>
                     <h1 class="m-0 text-primary">Ala Immobiler</h1>
                 </a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <button type="button" class="navbar-toggler" data-bs-toggle="collapse"
+                    data-bs-target="#navbarCollapse">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav ms-auto">
                         <a href="/acceuil" class="nav-item nav-link">acceuil</a>
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle active" data-bs-toggle="gestion de bien">gestion des biens</a>
+                            <a href="#" class="nav-link dropdown-toggle active"
+                                data-bs-toggle="gestion de bien">gestion des biens</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="listeBien" class="dropdown-item">liste des bien</a>
                                 <a href="" class="dropdown-item active">Property Agent</a>
@@ -67,12 +72,12 @@
                         </div>
                         <a href="contact.html" class="nav-item nav-link">Contact</a>
                     </div>
-                    <a href="" class="btn btn-primary px-3 d-none d-lg-flex">deconnexion</a>
+                    <a href="/inscription" class="btn btn-primary px-3 d-none d-lg-flex">deconnexion</a>
                 </div>
             </nav>
         </div>
         <!-- Navbar End -->
-<br><br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br><br>
 
         <!-- Header Start -->
         <div class="container-fluid header bg-white p-0">
@@ -90,26 +95,38 @@
 
 
         <!-- Property List Start -->
-                            <div class="col-lg-4 col-md-6">
-                                <div class="property-item rounded overflow-hidden">
-                                    <div class="position-relative overflow-hidden">
-                                        <h4>liste des biens</h4> <br>
-                                        <br>
-                                        <a href=""><img class="img-fluid" src="template/img/property-6.jpg" alt=""></a>
+        <h4>liste des biens</h4> <br>
+        <div class="row">
+            @foreach ($Biens as $Biens)
+                <div class="col-lg-4 col-md-6">
+                    <div class="property-item rounded overflow-hidden">
+                        <div class="position-relative overflow-hidden">
 
-                                        <div class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">status</div>
-                                    </div>
-                                    <div class="p-4 pb-0">
-                                        <a class="d-block h5 mb-2" href="">villa de reve</a>
-                                        <p><i class="fa fa-map-marker-alt text-primary me-2"></i>adresse</p>
-                                        <p>description</p>
-                                            <input type="text" class="form-control" name="commentaire" id="commentaire" placeholder="Ecrivez ici votre commentaire">
-                                            <input type="submit" class="form-control" value="ajouter">
+                            <br>
+                            <img class="img-fluid" src="{{asset('template/img/'.$Biens->image)}}" alt="">
 
-                                    </div>
-                                </div>
-                            </div>
-                      <!-- Property List End -->
+                            <div
+                                class="bg-white rounded-top text-primary position-absolute start-0 bottom-0 mx-4 pt-1 px-3">
+                                {{ $Biens->statu }}</div>
+                        </div>
+                        <div class="p-4 pb-0">
+                            <a class="d-block h5 mb-2" href=""> {{ $Biens->nomBien }} </a>
+
+                            <p><i class="fa fa-map-marker-alt text-primary me-2"></i> {{ $Biens->adresse }} </p>
+                            <p> {{ $Biens->description }} </p>
+
+                            <form action=""  method="POST">
+                            <input type="text" class="form-control" name="commentaire" id="commentaire"
+                                placeholder="Ecrivez ici votre commentaire">
+                            <input type="submit" class="form-control" value="ajouter">
+                        </form>
+                        
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+        <!-- Property List End -->
 
 
         <!-- Testimonial Start -->
@@ -123,13 +140,15 @@
                     <div class="testimonial-item bg-light rounded p-3">
                         <div class="bg-white border rounded p-4">
                             <div class="d-flex align-items-center">
-                                <img class="img-fluid flex-shrink-0 rounded" src="template/img/testimonial-1.jpg" style="width: 45px; height: 45px;">
+                                <img class="img-fluid flex-shrink-0 rounded" src="template/img/testimonial-1.jpg"
+                                    style="width: 45px; height: 45px;">
                                 <div class="ps-3">
                                     <h6 class="fw-bold mb-1">auteur</h6>
                                     <p>contenu</p>
                                     <div class="form-group">
 
-                                        <input type="date" class="form-control" name="date" id="date"  required="required" placeholder="What would you like to talk about?">
+                                        <input type="date" class="form-control" name="date" id="date"
+                                            required="required" placeholder="What would you like to talk about?">
                                         <button type="button" class="btn btn-success">modifer</button>
                                     </div>
 
@@ -154,10 +173,14 @@
                         <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
                         <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
                         <div class="d-flex pt-2">
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                            <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i
+                                    class="fab fa-twitter"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i
+                                    class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i
+                                    class="fab fa-youtube"></i></a>
+                            <a class="btn btn-outline-light btn-social" href=""><i
+                                    class="fab fa-linkedin-in"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-3 col-md-6">
@@ -172,22 +195,28 @@
                         <h5 class="text-white mb-4">Photo Gallery</h5>
                         <div class="row g-2 pt-2">
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="template/img/property-1.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="template/img/property-1.jpg"
+                                    alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="template/img/property-2.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="template/img/property-2.jpg"
+                                    alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="template/img/property-3.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="template/img/property-3.jpg"
+                                    alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="template/img/property-4.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="template/img/property-4.jpg"
+                                    alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="template/img/property-5.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="template/img/property-5.jpg"
+                                    alt="">
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid rounded bg-light p-1" src="template/img/property-6.jpg" alt="">
+                                <img class="img-fluid rounded bg-light p-1" src="template/img/property-6.jpg"
+                                    alt="">
                             </div>
                         </div>
                     </div>
@@ -195,8 +224,10 @@
                         <h5 class="text-white mb-4">Newsletter</h5>
                         <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
                         <div class="position-relative mx-auto" style="max-width: 400px;">
-                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
-                            <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
+                            <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
+                                placeholder="Your email">
+                            <button type="button"
+                                class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
                         </div>
                     </div>
                 </div>
@@ -207,8 +238,8 @@
                         <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
                             &copy; <a class="border-bottom" href="#">Your Site Name</a>, All Right Reserved.
 
-							<!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-							Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
+                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
+                            Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a>
                         </div>
                         <div class="col-md-6 text-center text-md-end">
                             <div class="footer-menu">

@@ -22,16 +22,17 @@
                 <div id="content" >
                     <h1> modifie Bien </h1>
 
-                    <form role="form">
+                    <form role="form" method="POST" action="/modificationBien/{{$bien->id}}">
+                        @csrf
 
                         <div class="form-group">
                             <label for="nom" class="iconic user" >  <span class="required">*</span></label>
-                            <input type="text" class="form-control" name="username" id="username" value="{{$bien->nomBien}}"  required="required" placeholder="Hi friend, how may I call you ?">
+                            <input type="text" class="form-control" name="nomBien" id="username" value="{{$bien->nomBien}}"  required="required" placeholder="Hi friend, how may I call you ?">
                         </div>
                         <div class="form-group">
                             <div class="form-group">
                                 <label for="exampleSelect1" class="form-label mt-4"></label>
-                                <select class="form-control" id="exampleSelect1" value="{{$bien->categorie}}">
+                                <select class="form-control" name="categorie" id="exampleSelect1" value="{{$bien->categorie}}">
                                   <option>luxe</option>
                                   <option>moyen</option>
                                 </select>
@@ -50,8 +51,8 @@
                             <input type="text" class="form-control" name="adresse" value="{{$bien->adresse}}" id="adresse"  required="required" placeholder="l'adresse">
                         </div>
                         <div class="form-group">
-                            <label for="exampleSelect1" class="form-label mt-4"></label>
-                            <select class="form-control" id="exampleSelect1" value="{{$bien->statu}}">
+                            <label for="statu" class="form-label mt-4"></label>
+                            <select class="form-control"  name="statu" id="dtatu" value="{{$bien->statu}}">
                               <option>disponible</option>
                               <option>occupe</option>
                             </select>
@@ -60,9 +61,7 @@
                             <label for="date" class="iconic quote-alt"></label>
                             <input type="date" class="form-control" name="date" value=" {{$bien->date}}" id="date"  required="required" placeholder="What would you like to talk about?">
                         </div>
-                        <a href="/pageAdmin">
                         <input type="submit" value=" ★ modifer👍" />
-                    </a>
                     </form>
                 </div>
             </div>

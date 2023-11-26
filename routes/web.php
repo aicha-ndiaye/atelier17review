@@ -3,8 +3,10 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BiensController;
 use App\Http\Controllers\UtilisateurController;
+use Faker\Guesser\Name;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,4 +33,11 @@ Route::post('/modificationBien/{bien}',[AdminController::class,'update']);
 Route::get('/pageUser',[UserController::class,'index']);
 Route::get('/inscription',[UserController::class,'create']);
 Route::post('/inscriptionUser',[UserController::class,'store']);
+Route::post('/connecters',[UserController::class,'connecter']);
+Route::get('/acceuil',[AdminController::class,'show']);
+
+Route::get('/connexion',[UserController::class,'connexion']);
+
+Route::post('/auth',[AuthController::class,'authentificate'])->name('auth');
+
 

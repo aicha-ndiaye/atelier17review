@@ -18,10 +18,10 @@
                 <span><i class="icon icon-user"></i></span>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" id="nom" placeholder="nom">
+                <input type="text" class="form-control item" id="nom" name="nom" placeholder="nom">
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" id="prenom" placeholder="prenom">
+                <input type="text" class="form-control item" id="prenom" name="prenom" placeholder="prenom">
             </div>
             <div class="form-group">
                 <input type="text" class="form-control item" name="email" id="email" placeholder="Email">

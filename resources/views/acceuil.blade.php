@@ -63,7 +63,7 @@
                         {{-- <a href="index.html" class="nav-item nav-link">Home</a>
                         <a href="about.html" class="nav-item nav-link">About</a> --}}
                         <div class="nav-item dropdown">
-                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">categorie</a>
+                            <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">categorie-</a>
                             <div class="dropdown-menu rounded-0 m-0">
                                 <a href="property-list.html" class="dropdown-item">luxe</a>
                                 <a href="property-type.html" class="dropdown-item">moyen</a>

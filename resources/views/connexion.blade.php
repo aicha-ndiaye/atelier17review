@@ -12,21 +12,22 @@
 </head>
 <body>
     <div class="registration-form">
-        <form>
+        <form method="POST" action="{{route('auth')}}">
+            @csrf
             <div class="form-icon">
                 <span><i class="icon icon-user"></i></span>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control item" id="email" placeholder="Email">
+                <input type="text" class="form-control item" name="email" id="email" placeholder="Email">
             </div>
 
             <div class="form-group">
-                <input type="password" class="form-control item" id="password" placeholder="mot de passe">
+                <input type="password" class="form-control item" name="mot_de_passe" id="password" placeholder="mot de passe">
             </div>
 
 
             <div class="form-group">
-                <button type="button" class="btn btn-block create-account">Connexion</button>
+                <button type="submit" class="btn btn-block create-account">Connexion</button>
             </div>
         </form>
 

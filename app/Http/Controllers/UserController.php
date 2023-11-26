@@ -6,7 +6,9 @@ use App\Models\User;
 use App\Models\Biens;
 use Illuminate\Http\Request;
 use App\Policies\BiensPolicy;
-
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Foundation\Auth\AuthenticatesUsers;
 class UserController extends Controller
 {
     /**
@@ -41,18 +43,18 @@ class UserController extends Controller
                 'regex:/^(?=.*[A-Z])(?=.*\d).{2,}$/',
             ],
         ]);
-
         $user->nom=$request->nom;
         $user->prenom=$request->prenom;
         $user->email=$request->email;
-        $user->mot_de_passe=$request->mot_de_passe;
+        $user->mot_de_passe=($request->mot_de_passe);
         $user->role='user';
 
         if ($user->save()) {
-            return redirect('/pageUser');
+            return redirect('/connexion');
+
         }
     }
-
+    //
     /**
      * Display the specified resource.
      */
@@ -84,4 +86,37 @@ class UserController extends Controller
     {
         //
     }
+
+     public function connexion(){
+         return view('connexion');
+     }
+
+     public function connecter(Request $request){
+      $connexion =  $request->validate([
+            'email'=>'required|email',
+            'mot_de_passe'=>'required'
+        ]);
+
+        $mdp = bcrypt($connexion['mot_de_passe']);
+
+        $last = '$2y$12$MoyAz6kXxk9xbUBgWFv/5eeHvvmFW4cfWJfNWhM3uVwe8OTk3alYC';
+
+        //dd($mdp === $last);
+
+
+        $credentials = $request->only('email', 'mot_de_passe');
+        dd(Auth::attempt($credentials));
+
+        if (Auth::attempt($credentials)) {
+            // L'authentification a réussi
+            return redirect('/pageUser');
+        } else {
+            // L'authentification a échoué
+
+            return back()->withErrors(['message' => 'Adresse e-mail ou mot de passe incorrect']);
+        }
+
+
+     }
+
 }
